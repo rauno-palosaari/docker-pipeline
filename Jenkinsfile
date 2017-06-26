@@ -16,7 +16,7 @@ node {
             print "Environment will be : ${env.NODE_ENV}"
             def fedora = docker.image('fedora:latest');
             fedora.inside {
-                cat /etc/os-release
+                sh "cat /etc/os-release"
             }
             //sh "whoami"
             //sh "docker images"
