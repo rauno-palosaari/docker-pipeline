@@ -14,10 +14,10 @@ node {
         stage('test') {
             env.NODE_ENV = "test"
             print "Environment will be : ${env.NODE_ENV}"
-            //def docker_local = docker.image('fedora:latest');
-            //docker_local.inside("cat /etc/os-release")
-            sh "whoami"
-            sh "docker images"
+            def docker_local = docker.image('fedora:latest');
+            docker_local.inside("cat /etc/os-release")
+            //sh "whoami"
+            //sh "docker images"
         }
 
         stage('Build Image') {
