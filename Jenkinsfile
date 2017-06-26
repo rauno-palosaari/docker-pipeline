@@ -31,11 +31,11 @@ node {
         }
     } catch (err) {
         currentBuild.result = "FAILURE"
-        mail body: "Build error: ${env.BUILD_URL}" ,
-            from: "builder@rauno.com",
-            replyTo: "developers@rauno.com",
-            subject: "Build ${env.BUILD_TAG} failed",
-            to: 'zzzz@yyyyy.com'
+        //mail body: "Build error: ${env.BUILD_URL}" ,
+        //    from: "builder@rauno.com",
+        //    replyTo: "developers@rauno.com",
+        //    subject: "Build ${env.BUILD_TAG} failed",
+        //    to: 'zzzz@yyyyy.com'
 
         throw err
     }
