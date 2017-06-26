@@ -2,7 +2,6 @@
 
 node {
     currentBuild.result = "SUCCESS"
-
     try {
         stage('Checkout') {
             checkout scm
@@ -15,6 +14,12 @@ node {
         stage('test') {
             env.NODE_ENV = "test"
             print "Environment will be : ${env.NODE_ENV}"
+            def fedora = docker.image('fedora:latest');
+            fedora.inside {
+                sh "cat /etc/os-release"
+            }
+            //sh "whoami"
+            //sh "docker images"
         }
 
         stage('Build Image') {
@@ -30,11 +35,11 @@ node {
         }
     } catch (err) {
         currentBuild.result = "FAILURE"
-        mail body: "Build error: ${env.BUILD_URL}" ,
-            from: "builder@rauno.com",
-            replyTo: "developers@rauno.com",
-            subject: "Build ${env.BUILD_TAG} failed",
-            to: 'zzzz@yyyyy.com'
+        //mail body: "Build error: ${env.BUILD_URL}" ,
+        //    from: "builder@rauno.com",
+        //    replyTo: "developers@rauno.com",
+        //    subject: "Build ${env.BUILD_TAG} failed",
+        //    to: 'zzzz@yyyyy.com'
 
         throw err
     }
