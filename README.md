@@ -5,14 +5,10 @@ FROM jenkins:2.60.1
 
 USER root
 
-ARG  DEBIAN_FRONTEND=noninteractive
-
-# apt-utlis must be installed before libydl7 so 2 apt-get installs are needed
-RUN  groupadd -g977 docker \
+RUN  DEBIAN_FRONTEND=noninteractive groupadd -g977 docker \
   && usermod -aG docker jenkins \
   && apt-get update \
-  && apt-get install -y apt-utils \
-  && apt-get install -y libltdl7 \
+  && apt-get install -y apt-utils libltdl7 \
   && apt-get clean  
 
 USER jenkins
