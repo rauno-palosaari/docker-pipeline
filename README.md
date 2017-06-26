@@ -4,7 +4,7 @@
 FROM jenkins:2.60.1
 USER root
 RUN groupadd -aG docker jenkins && apt-get install -y libltdl7
-USER jekins
+USER jenkins
 ```
 ### Start container
 ```bash
