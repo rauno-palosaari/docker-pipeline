@@ -14,8 +14,8 @@ node {
         stage('test') {
             env.NODE_ENV = "test"
             print "Environment will be : ${env.NODE_ENV}"
-            def docker_local = docker.image('fedora:latest');
-            docker_local.inside() {
+            def fedora = docker.image('fedora:latest');
+            fedora.inside {
                 cat /etc/os-release
             }
             //sh "whoami"
