@@ -17,7 +17,7 @@ node {
             //def docker_local = docker.image('fedora:latest');
             //docker_local.inside("cat /etc/os-release")
             sh "whoami"
-            sh "env"
+            sh "docker images"
         }
 
         stage('Build Image') {
