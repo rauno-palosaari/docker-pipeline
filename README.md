@@ -18,7 +18,8 @@ Note that the final service will not poblish any ports and will add `--endpoint-
 ```bash
 docker service create --name jenkins --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock --mount type=bind,src=/usr/bin/docker,dst=/usr/bin/docker --endpoint-mode=dnsrr --constraint 'node.role == manager' -p 8080:8080 -p 50000:50000 jenkins:2.60.1
 ```
-# application
+# docker network create
+# test-application
 spring boot sample application
 # proxy
 haproxy
